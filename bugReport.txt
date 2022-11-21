@@ -1,0 +1,8 @@
+Fields are not disabled when user marked "aaa" chekbox.
+Description
+Steps to reproduce:
+1) Login to ... as admin
+2) Click in the "+Create" button
+3) Click on the "aaa" chekbox
+Actual result: "text" and "text2" field are not disabled
+Expected result: "text" and "text2" fields should be disabled.
