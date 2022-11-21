@@ -1,0 +1,146 @@
+1) Посмотреть где я
+команда - pwd
+результат - /c/Users/aim
+
+2) Создать папку
+команда - mkdir
+результат - mkdir Catalog
+
+3) Зайти в папку
+команда - cd !$
+результат - aim@ThinkBook MINGW64 ~/Catalog
+
+4) Создать 3 папки
+команда - mkdir -p {app1,app2,app3}
+результат - aim@ThinkBook MINGW64 ~
+
+5) Зайти в любоую папку
+команда - cd app2
+результат - aim@ThinkBook MINGW64 ~/app2
+ 
+6) Создать 5 файлов (3 txt, 2 json)
+команда - touch {doc1.txt,doc2.txt,doc3.txt,doc4.json,doc5.json}
+результат - aim@ThinkBook MINGW64 ~/app2
+
+7) Создать 3 папки
+команда - mkdir -p {a,b,c}
+результат -  aim@ThinkBook MINGW64 ~/app2
+
+8. Вывести список содержимого папки
+команда - ls
+результат - a/  b/  c/  doc1.txt  doc2.txt  doc3.txt  doc4.json  doc5.json
+
+9) + Открыть любой txt файл
+команда - vim doc1.txt
+результат - открылся редактор vim
+
+10) + написать туда что-нибудь, любой текст.
+текст:
+aaaaaaa
+bbbbbbbbbbbb
+nnnnnnnnnnn
+vvvvvvvvvvvv
+
+11) + сохранить и выйти.
+команды:
+1) Esc
+2) :wq! (сохраняет содержимое файла)
+3) enter
+
+12) Выйти из папки на уровень выше
+команда - cd ..
+результат - aim@ThinkBook MINGW64 ~
+
+—
+13) переместить любые 2 файла, которые вы создали, в любую другую папку.
+команда - $ mv doc1.txt doc2.txt a/
+результат - aim@ThinkBook MINGW64 ~/app2
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку.
+команда - $ cp doc3.txt doc4.json b/
+результат - aim@ThinkBook MINGW64 ~/app2
+
+15) Найти файл по имени
+команда - $ find . -name "doc2.txt"
+результат - ./a/doc2.txt
+
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает.
+команда - $ tail -f doc1.txt|grep a
+результат - aaaaaaa
+
+17) вывести несколько первых строк из текстового файла
+команда - $ cat doc1.txt | sed -n 1,2p
+результат - 
+aaaaaaa
+bbbbbbbbbbbb
+
+18) вывести несколько последних строк из текстового файла
+команда - $ cat doc1.txt | sed -n 3,4p
+результат - 
+nnnnnnnnnnn
+vvvvvvvvvvvv
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает.
+команда - $ less doc3.txt
+результат - открывает содержимое в новом окне, чтобы выйти, нажимаем "q"
+
+20) вывести дату и время
+команда - $ date
+результат - Sun May 22 23:37:43     2022
+
+=========
+
+Задание *
+1) Отправить http запрос на сервер.
+http://162.55.220.72:5005/terminal-hw-request
+
+команда - $ curl http://162.55.220.72:5005/terminal-hw-request
+результат - 
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   283  100   283    0     0   2263      0 --:--:-- --:--:-- --:--:--  2282{
+  "Intro": "Hello!! This is your the first response from server",
+  "Tasks": {
+    "Task_1": "Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)",
+    "result": [
+      "Your_String",
+      "Your_number"
+    ]
+  }
+}
+
+____________________________________________________________________________
+
+команда - $ curl "http://162.55.220.72:5005/get_method?name=Karina&age=25"
+результат -
+ [1] 646
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+aim@ThinkBook MINGW64 ~/app2
+100    24  100    24    0     0    184      0 --:--:-- --:--:-- --:--:--   186[
+  "Karina",
+  null
+]
+
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+
+1 - Создала файл в Notepad++ под названием "Myscript.log"
+2 - Текст скрипта:
+
+#!/bin/bash
+cd /c/Users/aim/Catalog1
+mkdir -p {app1,app2,app3} 
+cd app2
+touch {doc1.txt,doc2.txt,doc3.txt,doc4.json,doc5.json}
+mkdir -p {a,b,c}
+ls 
+mv doc1.txt doc2.txt a/
+
+3. Запустила скрипт в Bash, указав:
+$ ./myscript.log
+
+4 - Выдало результат:
+a  b  c  doc1.txt  doc2.txt  doc3.txt  doc4.json  doc5.json
+
